@@ -1,0 +1,14 @@
+.search-control { position:relative; display:flex; align-items:center; }
+.search-control.open { background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 10px 26px rgba(23,58,61,.08); }
+.search-control.open .square-button { border:0; }
+.search-control input { width:220px; border:0; outline:0; background:transparent; padding:9px 10px 9px 0; color:var(--ink); font-size:11px; }
+.search-results { position:absolute; top:44px; right:0; width:290px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:6px; box-shadow:0 15px 35px rgba(23,58,61,.13); z-index:10; animation:content-in 180ms var(--motion-ease) both; }
+.search-results button { display:block; text-align:start; width:100%; background:transparent; padding:10px; border-radius:8px; }
+.search-results button:hover { background:#eef8f2; transform:none; }
+.search-results b,.search-results small { display:block; }
+.search-results b { font-size:11px; }
+.search-results small { color:var(--muted); font-size:9px; margin-top:3px; }
+.search-results > span { display:block; padding:12px; color:var(--muted); font-size:10px; }
+.rtl .search-results { right:auto; left:0; }
+.rtl .search-control input { text-align:right; padding:9px 0 9px 10px; }
+@media(max-width:560px){.search-control input{width:155px}.search-results{width:235px}}
