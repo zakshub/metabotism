@@ -40,4 +40,18 @@ h2,h3,p { margin:0; } h2 { font-size:18px; } h3 { font-size:17px; margin:2px 0 4
 .onboarding h1 { font-size:30px; margin:5px 0 8px; }.intro-copy { color:var(--muted); font-size:14px; max-width:280px; line-height:1.8; }
 .form-card { width:100%; background:#fff; border:1px solid var(--line); border-radius:20px; padding:20px; margin-top:28px; text-align:inherit; box-shadow:var(--shadow); }.form-card label { display:block; color:#5f6f6b; font-size:12px; font-weight:600; margin-bottom:14px; }.form-card input { width:100%; margin-top:6px; border:1px solid #dce7e4; border-radius:12px; padding:11px 13px; outline:0; color:var(--ink); background:#fbfdfc; direction:inherit; }.form-card input:focus { border-color:var(--teal); box-shadow:0 0 0 3px #dff3ef; }.form-card .primary-button { margin-top:4px; }.primary-button:disabled { opacity:.45; cursor:not-allowed; }.onboarding-switch { margin-top:25px; }
 .nastaliq-mode .task-copy p,.nastaliq-mode .reason,.nastaliq-mode .bubble p,.nastaliq-mode .coach-tip p,.nastaliq-mode .list-row,.nastaliq-mode .intro-copy { font-family:'Noto Nastaliq Urdu','Noto Naskh Arabic',serif; line-height:2.1; }
+
+[dir="rtl"] { text-align:right; }
+[dir="rtl"] .topbar,
+[dir="rtl"] .brand-lockup,
+[dir="rtl"] .header-actions,
+[dir="rtl"] .greeting-row,
+[dir="rtl"] .task-card,
+[dir="rtl"] .coach-tip,
+[dir="rtl"] .settings-card label { direction:rtl; }
+[dir="rtl"] .task-card { text-align:right; }
+[dir="rtl"] .done-button { margin-right:auto; margin-left:0; }
+[dir="rtl"] .bottom-nav { direction:rtl; }
+[dir="rtl"] .bottom-nav button { direction:rtl; }
+[dir="rtl"] input { text-align:right; }
 .grocery-button { width:100%; background:transparent; color:inherit; text-align:inherit; }
