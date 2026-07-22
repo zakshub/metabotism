@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MetaBotism</string>
+    <string name="title_activity_main">MetaBotism</string>
+    <string name="package_name">com.metabotism.app</string>
+    <string name="custom_url_scheme">com.metabotism.app</string>
+</resources>
