@@ -55,8 +55,16 @@ const server = http.createServer(async (req, res) => {
     const response = await client.responses.create({ model, store: false, input: [{ role: 'system', content: systemPrompt(input.language, input.profile) }, ...input.history.map((item) => ({ role: item.role, content: item.text })), { role: 'user', content: input.message }] })
     return json(res, 200, { reply: response.output_text, model })
   } catch (error) {
-    const message = error instanceof z.ZodError ? 'invalid_request' : 'chat_failed'
-    return json(res, 400, { error: message })
+    if (error instanceof z.ZodError) return json(res, 400, { error: 'invalid_request', message: 'The chat request is invalid.' })
+
+    const apiError = error as { status?: number; message?: string }
+    const status = apiError.status ?? 500
+    console.error(`[chat] OpenAI request failed (${status}): ${apiError.message || 'unknown error'}`)
+
+    if (status === 401 || status === 403) return json(res, 502, { error: 'ai_auth_failed', message: 'The server API key was rejected. Check OPENAI_API_KEY.' })
+    if (status === 429) return json(res, 429, { error: 'ai_rate_limited', message: 'The AI service is rate-limited or out of quota. Check billing and usage.' })
+    if (status === 400) return json(res, 502, { error: 'ai_request_rejected', message: 'The AI service rejected this request. Check OPENAI_MODEL and the server configuration.' })
+    return json(res, 502, { error: 'ai_unavailable', message: 'The AI service is temporarily unavailable. Check the API server terminal.' })
   }
 })
 
