@@ -54,4 +54,54 @@ h2,h3,p { margin:0; } h2 { font-size:18px; } h3 { font-size:17px; margin:2px 0 4
 [dir="rtl"] .bottom-nav { direction:rtl; }
 [dir="rtl"] .bottom-nav button { direction:rtl; }
 [dir="rtl"] input { text-align:right; }
+
+.side-nav { display:none; }
+.desktop-lower-grid,.panel,.week-bars,.panel-heading,.side-brand,.side-links,.side-footer { display:none; }
+
+@media (min-width: 960px) {
+  body { background:#edf3f1; }
+  .app-shell { width:100%; max-width:none; min-height:100vh; border-radius:0; display:grid; grid-template-columns:240px minmax(0,1fr); grid-template-rows:74px 1fr; grid-template-areas:'sidebar header' 'sidebar main'; background:#f4f8f7; box-shadow:none; }
+  .side-nav { grid-area:sidebar; display:flex; flex-direction:column; background:#fff; border-inline-end:1px solid var(--line); padding:24px 16px; }
+  .side-brand { display:flex; align-items:center; gap:10px; padding:0 8px 30px; }
+  .side-brand strong { display:block; font:700 15px 'Plus Jakarta Sans',sans-serif; color:var(--ink); }
+  .side-brand small { display:block; color:var(--muted); font-size:10px; margin-top:3px; }
+  .side-brand .brand-mark { width:38px; height:38px; font-size:24px; }
+  .side-links { display:flex; flex-direction:column; gap:5px; }
+  .side-links button { display:flex; align-items:center; gap:12px; width:100%; border-radius:12px; padding:12px 13px; background:transparent; color:#778682; font-size:13px; text-align:start; }
+  .side-links button span { width:22px; text-align:center; font-size:18px; }
+  .side-links button:hover { background:#f2f8f6; color:var(--teal); }
+  .side-links button.active { background:#e4f5f1; color:var(--teal-dark); font-weight:700; }
+  .side-footer { display:flex; align-items:center; gap:8px; margin-top:auto; padding:12px 8px; color:var(--muted); font-size:10px; }
+  .local-dot { width:7px; height:7px; border-radius:50%; background:#42ae7d; }
+  .topbar { grid-area:header; height:74px; border-bottom:1px solid var(--line); padding:0 34px; }
+  .topbar .brand-lockup { display:none; }
+  .page-content { grid-area:main; width:100%; max-width:1440px; padding:34px 44px 60px; margin:0 auto; min-height:calc(100vh - 74px); overflow:auto; }
+  .greeting-row { margin-bottom:24px; }
+  .greeting-row h1 { font-size:30px; letter-spacing:-.7px; }
+  .countdown-card { min-height:150px; margin:0 0 30px; }
+  .task-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+  .task-card { margin:0; min-height:170px; }
+  .desktop-lower-grid { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr); gap:18px; margin-top:22px; }
+  .panel { display:block; background:#fff; border:1px solid var(--line); border-radius:18px; padding:21px; box-shadow:var(--shadow); }
+  .panel-heading { display:flex; justify-content:space-between; align-items:flex-start; }
+  .panel-heading h2 { font-size:16px; margin-top:5px; }
+  .panel-heading strong { color:var(--teal); font:700 25px 'Plus Jakarta Sans',sans-serif; }
+  .week-bars { display:flex; align-items:end; justify-content:space-around; height:116px; gap:12px; margin-top:18px; }
+  .week-bar { height:100%; flex:1; display:flex; flex-direction:column; justify-content:end; align-items:center; gap:7px; color:var(--muted); font:10px 'Plus Jakarta Sans',sans-serif; }
+  .week-bar i { display:block; width:100%; max-width:28px; min-height:12px; border-radius:8px 8px 3px 3px; background:linear-gradient(180deg,#45b79b,#15917f); }
+  .insight-panel { display:flex; gap:14px; background:linear-gradient(135deg,#e9f8f3,#fff); }
+  .insight-icon { display:grid; place-items:center; flex:0 0 36px; height:36px; border-radius:12px; background:#d4f0e7; color:var(--teal); font-size:20px; }
+  .insight-panel p { margin:9px 0 15px; color:#536b65; font-size:13px; line-height:1.7; }
+  .text-button { background:none; color:var(--teal-dark); font-size:11px; padding:0; }
+  .bottom-nav { display:none; }
+  [dir="rtl"] .side-nav { border-inline-end:0; border-inline-start:1px solid var(--line); }
+  [dir="rtl"] .side-links button { flex-direction:row-reverse; }
+  [dir="rtl"] .side-brand { flex-direction:row-reverse; }
+  [dir="rtl"] .side-footer { flex-direction:row-reverse; }
+}
+
+@media (min-width: 1280px) {
+  .page-content { padding-inline:64px; }
+  .task-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
 .grocery-button { width:100%; background:transparent; color:inherit; text-align:inherit; }
